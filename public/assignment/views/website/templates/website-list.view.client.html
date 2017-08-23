@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-</head>
-<body>
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
 <p class="navbar-text pull-left">
-    <a href="profile.html" class="navbar-link">
+    <a href="../../user/templates/profile.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left">
           </span>
     </a>
@@ -20,7 +12,7 @@
     Websites
 </a>
 <p class="navbar-text pull-right">
-    <a href="website-new.html" class="navbar-link">
+    <a href="website-new.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-plus">
           </span>
     </a>
@@ -34,11 +26,11 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-sm-6">
-            <a href="page-list.html.html" class="navbar-link">Address Book App</a>
+        <div ng-repeat="websites in model.websitesList" class="col-sm-6">
+            <a href="page-list.html.html" class="navbar-link">{{websites.name}}</a>
         </div>
         <div class="col-sm-6">
-            <a href="website-edit.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
         </div>
     </div>
     <div class="row">
@@ -47,7 +39,7 @@
             <a href="page-list.html.html" class="navbar-link">Blogger</a>
         </div>
         <div class="col-sm-6">
-            <a href="website-edit.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
         </div>
     </div>
     <div class="row">
@@ -56,7 +48,7 @@
             <a href="page-list.html.html" class="navbar-link">Blogging App</a>
         </div>
         <div class="col-sm-6">
-            <a href="website-edit.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
         </div>
     </div>
     <div class="row">
@@ -65,7 +57,7 @@
             <a href="page-list.html.html" class="navbar-link">Script Testing App</a>
         </div>
         <div class="col-sm-6">
-            <a href="website-edit.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
         </div>
     </div>
 </div>
@@ -74,7 +66,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="profile.html" class="navbar-link">
+            <a href="../../user/templates/profile.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-user">
           </span>
             </a>
@@ -85,5 +77,3 @@
 
 
 
-</body>
-</html>
