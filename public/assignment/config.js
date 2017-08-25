@@ -21,8 +21,20 @@
             })
             .when("/user/:uid/website", {
                 templateUrl: "views/website/templates/website-list.view.client.html",
-                controller : 'websiteController',
+                controller : 'websiteListController',
                 controllerAs : 'model'
+            })
+            .when("/user/:uid/website/new", {
+                templateUrl: "views/website/templates/website-new.view.client.html",
+                controller : 'websiteNewController',
+                controllerAs : 'model'
+
+            })
+            .when("/user/:uid/website/:wid", {
+                templateUrl: "views/website/templates/website-edit.view.client.html",
+                controller : 'websiteEditController',
+                controllerAs : 'model'
+
             })
             .when("/", {
                 templateUrl: "views/user/templates/login.view.client.html",

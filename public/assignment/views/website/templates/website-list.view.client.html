@@ -12,7 +12,7 @@
     Websites
 </a>
 <p class="navbar-text pull-right">
-    <a href="website-new.view.client.html" class="navbar-link">
+    <a ng-click="model.newWebsiteNav()" class="navbar-link">
           <span class="glyphicon glyphicon-plus">
           </span>
     </a>
@@ -24,42 +24,16 @@
 </nav>
 <br>
 <div class="container">
-    <div class="row">
+    <div ng-repeat="websites in model.websitesList" class="row">
 
-        <div ng-repeat="websites in model.websitesList" class="col-sm-6">
+        <div  class="col-sm-6">
             <a href="page-list.html.html" class="navbar-link">{{websites.name}}</a>
         </div>
-        <div class="col-sm-6">
-            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+        <div  class="col-sm-6">
+            <a ng-click="model.editWebsiteNav(websites._id)" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
         </div>
     </div>
-    <div class="row">
 
-        <div class="col-sm-6">
-            <a href="page-list.html.html" class="navbar-link">Blogger</a>
-        </div>
-        <div class="col-sm-6">
-            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-        </div>
-    </div>
-    <div class="row">
-
-        <div class="col-sm-6">
-            <a href="page-list.html.html" class="navbar-link">Blogging App</a>
-        </div>
-        <div class="col-sm-6">
-            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-        </div>
-    </div>
-    <div class="row">
-
-        <div class="col-sm-6">
-            <a href="page-list.html.html" class="navbar-link">Script Testing App</a>
-        </div>
-        <div class="col-sm-6">
-            <a href="website-edit.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-        </div>
-    </div>
 </div>
 
 

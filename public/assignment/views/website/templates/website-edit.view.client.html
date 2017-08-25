@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Website Edit</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../../css/style.css" rel="stylesheet"/>
-</head>
-<body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -20,7 +11,7 @@
             Websites
         </a>
         <p class="navbar-text pull-right">
-            <a href="website-list.view.client.html" class="navbar-link">
+            <a ng-click="model.updateWebsite()" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
             </a>
@@ -33,18 +24,20 @@
 <br>
 <br>
 <div class="container">
+    <div ng-if="model.message" class="alert alert-success" role="alert">{{model.message}}</div>
+    <div ng-if="model.messageDelete" class="alert alert-success" role="alert">{{model.messageDelete}}</div>
     <form>
         <div class="form-group">
             <label for="name">Website Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Website Name">
+            <input ng-model="model.website.name" type="text" class="form-control" id="name" placeholder="Website Name">
         </div>
         <div class="form-group">
             <label for="desc">Website Description</label>
-            <textarea class="form-control" rows="5" id="desc" placeholder="Website Description"></textarea>
+            <textarea ng-model="model.website.description" class="form-control" rows="5" id="desc" placeholder="Website Description"></textarea>
         </div>
     </form>
     <a class="btn btn-danger  btn-block"
-       href="website-list.view.client.html">Delete</a>
+       ng-click="model.deleteWebsite()">Delete</a>
 </div>
 
 
@@ -62,5 +55,3 @@
 
 
 
-</body>
-</html>

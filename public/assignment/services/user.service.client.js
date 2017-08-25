@@ -59,7 +59,7 @@
         }
         function updateUser(userId, user){
             var obj = findUserById(userId);
-            if(obj!= user && obj === user){
+            if(obj!= null && obj === user){
                 users['email']=user.email;
                 users['username']=user.username;
                 users['firstName']=user.firstName;

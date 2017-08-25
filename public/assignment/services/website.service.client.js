@@ -14,7 +14,11 @@
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
         var api= {
-            "findWebsitesByUser" : findWebsitesByUser
+            "findWebsitesByUser" : findWebsitesByUser,
+            "createWebsite" : createWebsite,
+            "findWebsiteById" : findWebsiteById,
+            "updateWebsite" : updateWebsite,
+            "deleteWebsite" : deleteWebsite
 
         }
         return api;
@@ -29,6 +33,69 @@
                 }
             }
             return webArr;
+        }
+        function createWebsite(userId, website){
+           var length = websites.length;
+            var websiteObj = {
+                _id: '',
+                name: '',
+                developerId: '',
+                description: ''
+            };
+            if(website.name!=null && website.description!=null){
+                websiteObj['_id']=length;
+                websiteObj['name']=website.name;
+                websiteObj['developerId']=userId;
+                websiteObj['description']=website.description;
+                websites.push(websiteObj);
+
+            }
+            return websiteObj;
+        }
+        function findWebsiteById(websiteId){
+            for(var w in websites){
+                var website =websites[w];
+                if(website._id === websiteId){
+                    return website;
+                }
+
+            }
+            return null;
+
+        }
+        function updateWebsite(websiteId, website){
+            for(var w in websites){
+                var websiteObj =websites[w];
+                if(websiteObj._id === websiteId && websiteObj ===website){
+                    console.log(websiteObj);
+                    websites['name']=website.name;
+                    websites['description']=website.description;
+                }
+
+
+            }
+            return website;
+
+
+
+        }
+        function deleteWebsite(websiteId){
+            console.log('In Delete');
+            for(var w in websites){
+                var websiteObj =websites[w];
+                //console.log('WebsiteId'+websiteId);
+                console.log('WebsiteId'+websiteObj._id);
+                if(websiteObj._id===websiteId){
+                    console.log('website id'+websiteObj._id);
+                    var index = websites.indexOf(websiteObj);
+                    console.log('Index'+index);
+                    websites.splice(index,1);
+
+                }
+
+            }
+            return websites;
+
         }
 
     }
