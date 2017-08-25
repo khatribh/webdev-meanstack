@@ -27,7 +27,7 @@
     <div ng-repeat="websites in model.websitesList" class="row">
 
         <div  class="col-sm-6">
-            <a href="page-list.html.html" class="navbar-link">{{websites.name}}</a>
+            <a ng-click="model.pageNav(websites._id)" class="navbar-link">{{websites.name}}</a>
         </div>
         <div  class="col-sm-6">
             <a ng-click="model.editWebsiteNav(websites._id)" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>

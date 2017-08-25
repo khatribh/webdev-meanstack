@@ -7,6 +7,7 @@
         var vm= this;
         vm.newWebsiteNav =newWebsiteNav;
         vm.editWebsiteNav = editWebsiteNav;
+        vm.pageNav= pageNav;
 
         vm.userId = $routeParams.uid;
 
@@ -25,6 +26,9 @@
         }
         function editWebsiteNav(websiteId){
             $location.url('/user/'+vm.userId+'/website/'+websiteId);
+        }
+        function pageNav(websiteId){
+            $location.url('/user/'+vm.userId+'/website/'+websiteId+'/page');
         }
 
     }
