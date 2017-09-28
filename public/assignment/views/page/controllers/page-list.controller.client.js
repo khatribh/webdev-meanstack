@@ -7,6 +7,7 @@
         var vm= this;
         vm.newPageNav=newPageNav;
         vm.editPageNav=editPageNav;
+        vm.widgetListNav=widgetListNav;
 
         vm.userId =$routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -24,6 +25,9 @@
         }
         function editPageNav(pageId){
             $location.url('/user/'+vm.userId+'/website/'+vm.websiteId+'/page/'+pageId);
+        }
+        function widgetListNav(pageId){
+            $location.url('/user/'+vm.userId+'/website/'+vm.websiteId+'/page/'+pageId+'/widget');
         }
 
 

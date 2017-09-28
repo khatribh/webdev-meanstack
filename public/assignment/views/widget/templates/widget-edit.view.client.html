@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
@@ -8,7 +7,7 @@
             </a>
         </p>
         <a class="navbar-brand" href="#">
-            Pages
+           Widget Editor
         </a>
         <p class="navbar-text pull-right">
             <a ng-click="model.newPageNav()" class="navbar-link">
@@ -21,20 +20,8 @@
 
     </div>
 </nav>
-<br>
-<div class="container cont">
-    <div ng-repeat="page in model.pageList"class="row">
 
-        <div class="col-sm-6">
-            <a ng-click="model.widgetListNav(page._id)" class="navbar-link">{{page.name}}</a>
-        </div>
-        <div class="col-sm-6">
-            <a ng-click="model.editPageNav(page._id)" class="navbar-link"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-        </div>
-    </div>
-
-</div>
-
+<div class="container cont" ng-include="model.getTemplateUrl(model.widgetList.widgetType)"></div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
@@ -46,7 +33,3 @@
         </p>
     </div>
 </nav>
-
-
-
-
