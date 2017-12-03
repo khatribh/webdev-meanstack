@@ -5,11 +5,17 @@ angular
 function TodoController($scope, $http){
     $scope.todoList = [];
 
-    $http.get('/lectures/todo')
-        .then(function(response){
-            console.log(response);
-            $scope.todoList=response.data;
-        });
+    function init() {
+        $http.get('/lectures/findAllTodos')
+            .then(function(response){
+                $scope.todoList=response.data;
+                console.log($scope.todoList);
+                if($scope.todoList.length < 1) {
+                    $scope.notasks = 'No Todo Tasks Found.';
+                }
+            });
+    }
+    init();
 
     $scope.createTodo = createTodo;
     $scope.deleteTodo = deleteTodo;
@@ -18,27 +24,31 @@ function TodoController($scope, $http){
     $scope.selectedIndex = -1;
 
     function updateTodo(todo){
-        $scope.todoList[$scope.selectedIndex].title = todo.title;
-        $scope.todoList[$scope.selectedIndex].note = todo.note;
+        $http.put('/lectures/updateTodo/'+todo._id, todo)
+            .then(function(response){
+                init();
+                $scope.todo = '';
+            });
     };
 
     function selectTodo(todo){
-        $scope.selectedIndex = $scope.todoList.indexOf(todo);
-        $scope.todo = {};
-        $scope.todo.title = todo.title;
-        $scope.todo.note = todo.note;
+        $http.get('/lectures/findTodoById/'+todo._id)
+            .then(function(response){
+                $scope.todo = response.data;
+            });
     };
     function deleteTodo(todo){
-        var index = $scope.todoList.indexOf(todo);
-        console.log(index);
-        $scope.todoList.splice(index, 1);
+        $http.delete('/lectures/deleteTodo/'+todo._id)
+            .then(function(response){
+                init();
+            });
     };
 
     function createTodo(todo){
-        var newTodo = {
-            title : todo.title,
-            note : todo.note
-        };
-        $scope.todoList.push(newTodo);
+        $http.post('/lectures/createTodo', todo)
+            .then(function(response){
+                init();
+                $scope.todo = '';
+            });
     };
 }
